@@ -29,7 +29,7 @@ echo The ROM you are building is $1
 echo GApps variant has been set to $TARGET_GAPPS_ARCH
 fi
 
-if [[ partition_layout_map[${pieces[1]}]} == *"evox"* || *"pixel"* && ${gapps_selection_map[${pieces[2]}]} != *"arm"* ]]; then
+if [[ partition_layout_map[${pieces[1]}]} == *"evox"* || *"pixel"* && ${gapps_selection_map[${pieces[2]}]} != *"arm64"* ]]; then
 export TARGET_GAPPS_ARCH=arm
 echo The ROM you are building is $1
 echo GApps variant has been set to $TARGET_GAPPS_ARCH
