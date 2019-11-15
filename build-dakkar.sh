@@ -18,18 +18,18 @@ elif [[ $(uname -s) = "Linux" ]];then
     jobs=$(nproc)
 fi
 
-if [[ $1 == *"evox"* || *"pixel"* && $2 == *"gapps"* ]]; then
+if [[ ${partition_layout_map[${pieces[1]}]} == *"evox"* || *"pixel"* && ${gapps_selection_map[${pieces[2]}]} == *"gapps"* ]]; then
 echo "GApps on this ROM aren't supported this way, please use the vanilla variant to include gapps"
 exit 1
 fi
 
-if [[ $1 == *"evox"* || *"pixel"* && $2 == *"arm64"* ]]; then
+if [[ ${partition_layout_map[${pieces[1]}]} == *"evox"* || *"pixel"* && ${gapps_selection_map[${pieces[2]}]} == *"arm64"* ]]; then
 export TARGET_GAPPS_ARCH=arm64
 echo The ROM you are building is $1
 echo GApps variant has been set to $TARGET_GAPPS_ARCH
 fi
 
-if [[ $1 == *"evox"* || *"pixel"* && $2 != *"arm64"* ]]; then
+if [[ partition_layout_map[${pieces[1]}]} == *"evox"* || *"pixel"* && ${gapps_selection_map[${pieces[2]}]} != *"arm"* ]]; then
 export TARGET_GAPPS_ARCH=arm
 echo The ROM you are building is $1
 echo GApps variant has been set to $TARGET_GAPPS_ARCH
